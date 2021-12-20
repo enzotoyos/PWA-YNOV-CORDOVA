@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link rel="manifest" href="manifest.json" />
+    <script>
+        window.addEventListener("load", () => {
+            console.log(navigator);
+            if ("serviceWorker" in navigator) {
+                navigator.serviceWorker
+                    .register("sw.js", { scope: "./" })
+                    .then(function (reg) { });
+            }
+        });
+    </script>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+
+    <title>Top Rocket League Cars</title>
+</head>
+
+<body style="padding-top: 10px;">
+    <div class=" page" id="listItemPage">
+    <div class="row d-flex justify-content-center">
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand">TOP LIST ACTEURS</a>
+            <button class="btn btn-outline-success" type="button" id="addCards" onclick="addTopList()">+</button>
+        </div>
+      </nav>
+    </div> 
+    <div class="page" id="listTopList">
+        <main class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <h1>Toutes les TopLists</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p id="toplistsize"></p>
+                </div>
+
+            </div>
+            <hr>
+            <div class="row" id="list"></div>
+        </main>
+    </div>
+    <div class="hidden page" id="addTopList">
+        <main class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <h1>Ajout d'une TopList</h1>
+                </div>
+            </div>
+        </main>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <button type="button" class="btn btn-dark" onclick="returnTolist()">Liste des TopLists</button>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="container">
+            <div class="row">
+                <form method="post" id="myNewForm">
+                    <button class="btn btn-danger" type="submit">Ajouter</button>
+                    <div class="form-group" style="padding-bottom: 5px;">
+                        <label for="title"><b>ID</b></label>
+                        <input type="text" class="form-control" id="idNewItem" placeholder="ID de ma TopList">
+                    </div>
+                    <div class="form-group" style="padding-bottom: 5px;">
+                        <label for="title"><b>Titre</b></label>
+                        <input type="text" class="form-control" id="titleNewItem" placeholder="Titre de ma TopList">
+                    </div>
+                    <div class="form-group" style="padding-bottom: 5px;">
+                        <label for="desc"><b>Description</b></label>
+                        <textarea class="form-control" id="descNewItem" rows="3"
+                            placeholder="Description de ma TopList"></textarea>
+                    </div>
+                    <div class="row" id="newListItems"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="hidden page" id="page3">
+        <main class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <h1 id="titleTop"></h1>
+                </div>
+            </div>
+        </main>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <button type="button" class="btn btn-dark" onclick="returnTolist()">Liste des TopLists</button>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row" id="listItems"></div>
+    </div>
+
+    <!-- <script type="text/javascript" src="cordova.js"></script> -->
+    <script type="text/javascript" src="js/native.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/cars.js"></script>
+</body>
+
+</html>
